@@ -1,1 +1,1 @@
-# logistic-regression-1
+In this project, I am using logistic regression to predict whether a loan application is granted the loan based on such independent factors as applicant gender, marital status, education level, number of dependents, etc. I leverage the scikit-learn package to do this.
