@@ -33,4 +33,33 @@ print(df.isnull().sum())
 x = df.drop(columns = 'Loan_Status')
 print(x)
 
-#8:30
+y = df['Loan_Status']
+print(y)
+
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.3, random_state = 21)
+
+print(x_train)
+print(x_test)
+print(y_train)
+print(y_test)
+
+#because the range of values in my independent variable dataset (x) is so great, I will scale the data
+
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+x_train_scaled = scaler.fit_transform(x_train)
+x_test_scaled = scaler.transform(x_test)
+
+from sklearn.linear_model import LogisticRegression
+
+log_reg = LogisticRegression(random_state = 0).fit(x_train_scaled, y_train)
+
+print(log_reg.predict(x_train_scaled))
+
+print(log_reg.score(x_train_scaled, y_train))
+
+print(log_reg.score(x_test_scaled, y_test))
+
+
